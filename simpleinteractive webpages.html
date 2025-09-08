@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Concepts Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 30px;
+    }
+    button {
+      margin: 8px;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    pre {
+      text-align: left;
+      display: inline-block;
+      margin-top: 20px;
+      background: #f4f4f4;
+      padding: 12px;
+      border-radius: 8px;
+      width: 80%;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h1>JavaScript Concepts Demo</h1>
+
+  <button id="domBtn">Basic DOM Manipulation</button>
+  <button id="arrowBtn">Arrow Function</button>
+  <button id="spreadRestBtn">Spread & Rest Operator</button>
+  <button id="coercionBtn">Type Coercion</button>
+  <button id="hoistingBtn">Hoisting</button>
+  <button id="templateBtn">Template Literals</button>
+  <button id="destructuringBtn">Array & Object Destructuring</button>
+
+  <pre id="output">Click a button to see the result...</pre>
+
+  <script>
+    const output = document.getElementById("output");
+
+    // 1. Basic DOM Manipulation
+    document.getElementById("domBtn").addEventListener("click", () => {
+      document.body.style.backgroundColor = "lightyellow";
+      output.textContent = "DOM Manipulation: Background color changed to light yellow ✅";
+    });
+
+    // 2. Arrow Function
+    const arrowExample = () => "Arrow Function says: Hello World! 🎯";
+    document.getElementById("arrowBtn").addEventListener("click", () => {
+      output.textContent = arrowExample();
+    });
+
+    // 3. Spread & Rest Operator
+    const spreadRestExample = (...nums) => {
+      const numbers = [1, 2, 3];
+      const moreNumbers = [4, 5, ...nums];
+      return `Spread: ${[...numbers, ...moreNumbers]}
+Rest: ${nums}`;
+    };
+    document.getElementById("spreadRestBtn").addEventListener("click", () => {
+      output.textContent = spreadRestExample(6, 7, 8);
+    });
+
+    // 4. Type Coercion
+    document.getElementById("coercionBtn").addEventListener("click", () => {
+      let result = "";
+      result += `"5" + 2 = ${"5" + 2}\n`;   // string + number → string
+      result += `"5" - 2 = ${"5" - 2}\n`;   // string - number → number
+      result += `"5" == 5 → ${"5" == 5}\n`; // loose equality
+      result += `"5" === 5 → ${"5" === 5}\n`; // strict equality
+      output.textContent = result;
+    });
+
+    // 5. Hoisting
+    document.getElementById("hoistingBtn").addEventListener("click", () => {
+      let result = "Function Hoisting: " + sayHi() + "\n";
+      function sayHi() { return "Hello! I'm hoisted ✅"; }
+
+      result += "\nVar Hoisting:\n";
+      result += "Value of x before declaration: " + x + "\n";
+      var x = 10;
+      result += "Value of x after initialization: " + x + "\n";
+
+      result += "\nLet/Const Hoisting:\n";
+      try {
+        result += y;
+      } catch (e) {
+        result += "Accessing 'y' before declaration → " + e;
+      }
+      let y = 20;
+
+      output.textContent = result;
+    });
+
+    // 6. Template Literals
+    document.getElementById("templateBtn").addEventListener("click", () => {
+      const name = "Haneefa";
+      const age = 20;
+      const fruits = ["🍎 Apple", "🍌 Banana", "🍇 Grapes"];
+
+      const message = `
+Hello, my name is ${name}.
+I am ${age} years old.
+Next year I will be ${age + 1}.
+My fruits: ${fruits.join(", ")}
+`;
+      output.textContent = message;
+    });
+
+    // 7. Array & Object Destructuring
+    document.getElementById("destructuringBtn").addEventListener("click", () => {
+      const colors = ["Red", "Green", "Blue"];
+      const [first, second] = colors;
+
+      const person = { name: "Ali", country: "India", age: 25 };
+      const { name, country } = person;
+
+      output.textContent = `
+Array Destructuring:
+First: ${first}, Second: ${second}
+
+Object Destructuring:
+Name: ${name}, Country: ${country}
+`;
+    });
+  </script>
+</body>
+</html>
