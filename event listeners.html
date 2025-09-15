@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Event Listener Example</title>
+  <script defer>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Select elements
+      const btn = document.getElementById("myButton");
+      const box = document.getElementById("colorBox");
+      const input = document.getElementById("myInput");
+
+      // Add a click event listener to the button
+      btn.addEventListener("click", function () {
+        alert("Button was clicked!");
+      });
+
+      // Add mouseover and mouseout listeners to the box
+      box.addEventListener("mouseover", function () {
+        box.style.backgroundColor = "lightgreen";
+      });
+      box.addEventListener("mouseout", function () {
+        box.style.backgroundColor = "lightcoral";
+      });
+
+      // Add keyup event listener to input
+      input.addEventListener("keyup", function () {
+        document.getElementById("display").textContent =
+          "You typed: " + input.value;
+      });
+    });
+  </script>
+  <style>
+    #colorBox {
+      width: 200px;
+      height: 100px;
+      background-color: lightcoral;
+      margin: 10px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h2>Event Listener Demo</h2>
+  
+  <button id="myButton">Click Me</button>
+  
+  <div id="colorBox">Hover over me</div>
+  
+  <input type="text" id="myInput" placeholder="Type something..." />
+  <p id="display">You typed: </p>
+</body>
+</html>
