@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Select Elements Example</title>
+  <script defer>
+    // Wait until the DOM is ready
+    document.addEventListener("DOMContentLoaded", function () {
+      // Select element by ID
+      const heading = document.getElementById("mainHeading");
+      heading.style.color = "blue";
+
+      // Select elements by Class Name
+      const items = document.getElementsByClassName("item");
+      for (let i = 0; i < items.length; i++) {
+        items[i].style.fontWeight = "bold";
+      }
+
+      // Select elements by Tag Name
+      const paragraphs = document.getElementsByTagName("p");
+      paragraphs[0].style.backgroundColor = "lightyellow";
+
+      // Select first element using querySelector
+      const firstItem = document.querySelector(".item");
+      firstItem.style.color = "red";
+
+      // Select all elements using querySelectorAll
+      const allItems = document.querySelectorAll(".item");
+      allItems.forEach(el => el.style.border = "1px solid green");
+    });
+  </script>
+</head>
+<body>
+  <h1 id="mainHeading">Hello JavaScript Selectors</h1>
+  <p>This is a paragraph.</p>
+  <ul>
+    <li class="item">List Item 1</li>
+    <li class="item">List Item 2</li>
+    <li class="item">List Item 3</li>
+  </ul>
+</body>
+</html>
