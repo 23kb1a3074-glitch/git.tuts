@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Button Click Events</title>
+  <script defer>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Select all button elements
+      const buttons = document.querySelectorAll("button");
+
+      // Attach click event listener to each button
+      buttons.forEach(btn => {
+        btn.addEventListener("click", function () {
+          alert("You clicked: " + btn.textContent);
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <h2>Click Event Demo</h2>
+
+  <button>Button 1</button>
+  <button>Button 2</button>
+  <button>Button 3</button>
+</body>
+</html>
