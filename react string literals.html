@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React String Literals Example</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      function App() {
+        const firstName = "John";
+        const lastName = "Doe";
+        const age = 25;
+
+        // Using template literals
+        const message = `Hello, my name is ${firstName} ${lastName}. I am ${age} years old.`;
+
+        return (
+          <div>
+            <h2>String Literals Example</h2>
+            <p>{message}</p>
+          </div>
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+    </script>
+  </body>
+</html>
